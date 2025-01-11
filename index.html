@@ -1,11 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bangladesh 2.0</title>
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav a button {
+            background-color: transparent;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav a button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .banner {
+            background-color: #dff0e6;
+            border-radius: 15px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner .content {
+            max-width: 60%;
+        }
+
+        .banner h2 {
+            font-size: 14px;
+            color: #555;
+            margin: 0 0 10px;
+        }
+
+        .banner h1 {
+            font-size: 28px;
+            color: #000;
+            margin: 0 0 20px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .banner .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #006a4e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .banner .button:hover {
+            background-color: #004d37;
+        }
+
+        .banner .image {
+            max-width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner .image img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .pillars-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .pillars-section h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .pillars-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pillar-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            max-width: 250px;
+            min-width: 200px;
+        }
+
+        .pillar-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .pillar-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .pillar-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .vision-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .vision-section h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .vision-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .vision-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .vision-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .vision-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .vision-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .vision-card a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #4CAF50;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .vision-card a:hover {
+            background-color: #388e3c;
+        }
+
+        .quote-box {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+
+        .quote-box p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .quote-box .author {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .quote-box .designation {
+            font-size: 14px;
+            color: #777;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+
+        .opinion-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .opinion-section h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #dff0e6;
+            color: #333;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #f8f8f8;
+            cursor: pointer;
+        }
+
+        select:hover {
+            background-color: #e8e8e8;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .news-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .news-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .news-card img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .news-content {
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .news-text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .read-more {
+            margin-top: 10px;
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            background: #218838;
+        }
+
+        .donation-button {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .donation-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .donate-now-button {
+
+            background: #006400;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .donate-now-button:hover {
+            background: #004d00;
+        }
+
+        .email-input {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .newsletter-container {
+            text-align: center;
+            background: #e8f5e8;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .subscribe-button {
+            background: #006400;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .subscribe-button:hover {
+            background: #004d00;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #777;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background: #fff;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            width: 80%;
+            margin: 10px auto 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        .image-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-box {
+            background-image: url(quote-bg.png);
+            background-repeat: no-repeat;
+            background-position: top left;
+            padding: 35px;
+        }
+    </style>
 </head>
+
 <body>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam ad hic iste ea voluptas veritatis omnis maxime corporis accusamus provident minima voluptatem nesciunt quasi ipsum, alias voluptatibus porro error. Illum?</p>
+    <nav>
+        <h3>Bangladesh 2.0</h3>
+        <a href="#"><button>Sign In</button></a>
+    </nav>
+
+    <div class="banner">
+        <div class="content">
+            <h2>Bangladesh 2.0</h2>
+            <h1>Idea, innovation,vision, and
+                challenges in New Bangladesh.</h1>
+            <a href="#" class="button">Explore New Bangladesh</a>
+        </div>
+        <div class="image">
+            <img src="hero.png" alt="Bangladesh 2.0 Banner">
+        </div>
+    </div>
+
+    <div class="pillars-section">
+        <h1>Pillars of "Bangladesh 2.0"</h1>
+        <div class="pillars-container">
+            <div class="pillar-card">
+                <img src="card-icon.png" alt="Innovation Icon">
+                <h3>Innovation</h3>
+                <p>Dolor sit amet consectetur elit. Facilis quas, ducimus labore sequi quos.</p>
+            </div>
+            <div class="pillar-card">
+                <img src="card-icon.png" alt="Sustainability Icon">
+                <h3>Sustainability</h3>
+                <p>Dolor sit amet consectetur elit. Facilis quas, ducimus labore sequi quos.</p>
+            </div>
+            <div class="pillar-card">
+                <img src="card-icon.png" alt="Infrastructure Icon">
+                <h3>Infrastructure</h3>
+                <p>Dolor sit amet consectetur elit. Facilis quas, ducimus labore sequi quos.</p>
+            </div>
+            <div class="pillar-card">
+                <img src="card-icon.png" alt="Empowerment Icon">
+                <h3>Empowerment</h3>
+                <p>Dolor sit amet consectetur elit. Facilis quas, ducimus labore sequi quos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="vision-section">
+        <h1>The Vision of Future</h1>
+        <div class="vision-container">
+            <div style="background-color: skyblue;" class="vision-card">
+                <img src="card-icon.png" alt="Digital Transformation Icon">
+                <h3>Digital Transformation</h3>
+                <p>Creating a nationwide digital ecosystem to enhance connectivity and access to services for all
+                    citizens.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div style="background-color:pink ;" class="vision-card">
+                <img src="card-icon.png" alt="Green Energy Icon">
+                <h3>Green Energy</h3>
+                <p>Investments in solar and wind energy to ensure a sustainable and eco-friendly future.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div style="background-color:palegoldenrod;" class="vision-card">
+                <img src="card-icon.png" alt="Modern Infrastructure Icon">
+                <h3>Modern Infrastructure</h3>
+                <p>Building state-of-the-art infrastructure support economic growth and global competitiveness.</p>
+
+
+
+                <a href="#">Learn More</a>
+            </div>
+
+            <div class="quote-box">
+                <div>Banker to the Poor”
+                    Professor Muhammad Yunus established the Grameen Bank in Bangladesh in 1983, fueled by the belief
+                    that credit is a fundamental human right. His objective was to help poor people escape from poverty
+                    by providing loans on terms suitable to them and by teaching them a few sound financial principles
+                    so they could help themselves. </div>
+                <div class="author">Dr. Muhammad Yunus</div>
+                <div class="designation">Chief Adviser of the People's Republic of Bangladesh</div>
+            </div>
+        </div>
+
+        <div class="opinion-section">
+            <h1>Your Opinion Matters</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Questions</th>
+                        <th>Select Your Opinion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Do you believe Bangladesh is on the right path toward becoming a developed nation?</td>
+                        <td>
+                            <select>
+                                <option>Yes, I Agree</option>
+                                <option>No, I Disagree</option>
+                                <option>Neutral</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Do you believe Bangladesh is on the right path toward becoming a developed nation?</td>
+                        <td>
+                            <select>
+                                <option>Yes, I Agree</option>
+                                <option>No, I Disagree</option>
+                                <option>Neutral</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Do you believe Bangladesh is on the right path toward becoming a developed nation?</td>
+                        <td>
+                            <select>
+                                <option>Yes, I Agree</option>
+                                <option>No, I Disagree</option>
+                                <option>Neutral</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="news-section">
+            <h1>Recent News</h1>
+            <p>Bangladesh 2.0 aims to redefine the nation's trajectory by embracing cutting-edge technology, promoting
+                inclusive growth, and ensuring sustainability. With initiatives in renewable energy, digital
+                transformation, and robust infrastructure, the country is set to become a global model of development.
+            </p>
+        </div>
+
+        <div class="news-card">
+            <img style="width: 350px;" src="satelite.png" alt="Satellite">
+            <div class="news-content">
+                <h2 class="news-title">Bangladesh Launches New Satellite</h2>
+                <img style="width: 100px;" src="al-jazeera.png" alt="Satellite">
+                <p class="news-meta">Date: 05/01/2025 | Time: 10:25 PM</p>
+                <p class="news-text">Not until the creation and maintenance of decent conditions of life for all people
+                    are recognized and accepted as a common obligation of all people and all countries-not until then
+                    shall we, with a certain degree of justification, be able to speak of humankind as civilized</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+
+            <div class="news-content">
+                <h2 class="news-title">Bangladesh Launches New Satellite</h2>
+                <img style="width: 100px;" src="al-jazeera.png" alt="Satellite">
+                <p class="news-meta">Date: 05/01/2025 | Time: 10:25 PM</p>
+                <p class="news-text">Not until the creation and maintenance of decent conditions of life for all people
+                    are recognized and accepted as a common obligation of all people and all countries-not until then
+                    shall we, with a certain degree of justification, be able to speak of humankind as civilized</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <img style="width: 350px;" src="satelite.png" alt="Satellite">
+        </div>
+        <div class="news-card">
+            <img style="width: 350px;" src="satelite.png" alt="Satellite">
+            <div class="news-content">
+                <h2 class="news-title">Bangladesh Launches New Satellite</h2>
+                <img style="width: 100px;" src="al-jazeera.png" alt="Satellite">
+                <p class="news-meta">Date: 05/01/2025 | Time: 10:25 PM</p>
+                <p class="news-text">Not until the creation and maintenance of decent conditions of life for all people
+                    are recognized and accepted as a common obligation of all people and all countries-not until then
+                    shall we, with a certain degree of justification, be able to speak of humankind as civilized</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+        <div class="donation-container">
+            <h1>Donate Today</h1>
+            <p>Bangladesh 2.0 aims to redefine the nation's trajectory by embracing cutting-edge technology, promoting
+                inclusive growth, and ensuring sustainability. With initiatives in renewable energy, digital
+                transformation, and robust infrastructure.</p>
+            <div style="padding-bottom: 10px;" class="donation-options">
+                <button class="donation-button">100 Taka</button>
+                <button class="donation-button">200 Taka</button>
+                <button class="donation-button">500 Taka</button>
+                <button class="donation-button">1000 Taka</button>
+            </div>
+            <input type="text" class="donation-input" placeholder="Other Amount (Taka)">
+            <button style="margin-bottom: 10px;" class="donate-now-button">Done Now</button>
+        </div>
+        <div style="margin-left: 250px;">
+            <div class="newsletter-container">
+                <h1>Subscribe Newsletter</h1>
+                <p>Bangladesh 2.0 aims to redefine the nation’s trajectory by embracing cutting-edge technology,
+                    promoting inclusive growth.</p>
+                <div class="input-container">
+                    <input type="email" class="email-input" placeholder="Enter your email here">
+                    <button class="subscribe-button">Subscribe</button>
+                </div>
+                <p class="footer-text">We promise not to spam you!</p>
+            </div>
+        </div>
+        <h1>Bangladesh 2.0</h1>
+        <div class="divider"></div>
+        <div class="social-icons">
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="x.png" alt="Twitter"></a>
+        </div>
+
+
 </body>
+
+</html>
+
+</div>
+</body>
+
 </html>
